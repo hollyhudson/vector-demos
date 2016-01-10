@@ -33,6 +33,7 @@ void spinning_asterisk()
 
 int splines = 5; // number of lines the star is made of
 float degrees = 180/splines;
+
 // make a star of splines lines and rotate it
 void spinning_star()
 {
@@ -65,7 +66,7 @@ void vector_circle(PVector center, float r)
 	}
 }
 
-// draw an ellipse
+// draw an ellipse based on a x and a y radius
 void vector_ellipse(PVector center, float x_radius, float y_radius)
 {
 	int num_steps = (int)(x_radius + y_radius)/4;
