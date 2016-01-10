@@ -21,7 +21,7 @@ void draw() {
 	//spinning_asterisk();
 	//spinning_star();
 	PVector center = new PVector(width/2, height/2);
-	//vector_circle(center,150);
+	vector_circle(center,150);
 	vector_ellipse(center, 150, 100);
 
     vector_send(); 	// send the vectors to the board to be drawn

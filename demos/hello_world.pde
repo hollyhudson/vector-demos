@@ -51,15 +51,15 @@ void spinning_star()
 // draw a circle of r radius
 void vector_circle(PVector center, float r)
 {
-	int num_edges = (int)r/2;
-	float edge_distance = 360.0/num_edges;
+	int num_steps = (int)r/2;
+	float dtheta = 360.0/num_steps;
 	PVector radius1 = new PVector(0,r); // first pt, north on circle
 	
 	// draw the edges
-	for (int i = 0; i < num_edges; i++)
+	for (int i = 0; i < num_steps; i++)
 	{
 		PVector radius2 = radius1.copy();
-		radius2.rotate(edge_distance*PI/180);
+		radius2.rotate(dtheta*PI/180);
 		vector_line(false, PVector.add(center,radius1), PVector.add(center,radius2));			
 		radius1 = radius2;
 	}
@@ -70,14 +70,14 @@ void vector_ellipse(PVector center, float x_radius, float y_radius)
 {
 	int num_steps = (int)(x_radius + y_radius)/4;
 	float dtheta = 2*PI/num_steps; // step for incrementing the angle
-	PVector current_radius = new PVector(x_radius,0);
+	PVector radius1 = new PVector(x_radius,0);
 	
 	// draw the edges
 	for (float theta = dtheta; theta <= (2*PI + dtheta); theta += dtheta)
 	{
-		PVector next_radius = new PVector(x_radius * cos(theta), y_radius * sin(theta));
-		vector_line(false, PVector.add(center,current_radius), PVector.add(center,next_radius));
-		current_radius = next_radius;
+		PVector radius2 = new PVector(x_radius * cos(theta), y_radius * sin(theta));
+		vector_line(false, PVector.add(center,radius1), PVector.add(center,radius2));
+		radius1 = radius2;
 	}
 		
 }
