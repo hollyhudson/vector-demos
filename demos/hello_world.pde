@@ -55,7 +55,7 @@ void vector_circle(PVector center, float r)
 	float edge_distance = 360.0/num_edges;
 	PVector radius1 = new PVector(0,r); // first pt, north on circle
 	
-	// draw remaining edges
+	// draw the edges
 	for (int i = 0; i < num_edges; i++)
 	{
 		PVector radius2 = radius1.copy();
@@ -63,4 +63,21 @@ void vector_circle(PVector center, float r)
 		vector_line(false, PVector.add(center,radius1), PVector.add(center,radius2));			
 		radius1 = radius2;
 	}
+}
+
+// draw an ellipse
+void vector_ellipse(PVector center, float x_radius, float y_radius)
+{
+	int num_steps = (int)(x_radius + y_radius)/4;
+	float dtheta = 2*PI/num_steps; // step for incrementing the angle
+	PVector current_radius = new PVector(x_radius,0);
+	
+	// draw the edges
+	for (float theta = dtheta; theta <= (2*PI + dtheta); theta += dtheta)
+	{
+		PVector next_radius = new PVector(x_radius * cos(theta), y_radius * sin(theta));
+		vector_line(false, PVector.add(center,current_radius), PVector.add(center,next_radius));
+		current_radius = next_radius;
+	}
+		
 }
