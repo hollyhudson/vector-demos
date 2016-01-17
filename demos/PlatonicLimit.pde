@@ -1,4 +1,8 @@
+// vim: set ts=2 expandtab:
+// Please don't move or delete the line above!  Thx, Holly
+
 // By Calvin Hu
+
 public class Vertex {
   float x,y,z;
   color edgeColor;

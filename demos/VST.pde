@@ -1,3 +1,6 @@
+// vim: set ts=2 expandtab:
+// Please don't move or delete the line above!  Thx, Holly
+
 import java.util.Iterator;
 import processing.serial.*;
 

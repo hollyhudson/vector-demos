@@ -1,3 +1,6 @@
+// vim: set ts=2 expandtab:
+// Please don't move or delete the line above!  Thx, Holly
+
 // Location of flower
 float x = 0;
 float y = 100;

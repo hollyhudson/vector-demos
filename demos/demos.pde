@@ -1,3 +1,6 @@
+// vim: set ts=2 expandtab:
+// Please don't move or delete the line above!  Thx, Holly
+
 /** \file
  * Qix-like demo of drawing vectors with Processing.
  */
@@ -5,13 +8,13 @@
 Vst v;
 
 void setup() {
-    size(512, 600, P2D);
+  size(512, 600, P2D);
 
-    v = new Vst(this, createSerial());
+  v = new Vst(this, createSerial());
 
-    blendMode(ADD);   // lines brighter where they overlap
+  blendMode(ADD);   // lines brighter where they overlap
   noFill();   // don't fill in shapes
-    stroke(212, 128, 32, 128);  // (r,g,b,alpha) for lines
+  stroke(212, 128, 32, 128);  // (r,g,b,alpha) for lines
 
   // globals for the test functions:
   xTop = 20;
@@ -21,7 +24,7 @@ void setup() {
   xCenter = width/2;
   yCenter = height/2;
 
-    frameRate(25);  
+  frameRate(25);  
 }
 
 void draw() {
