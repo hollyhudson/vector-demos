@@ -35,7 +35,8 @@ void draw() {
 	//vector_circle(center,150);
 	//vector_ellipse(center, 150, 100);
 	//vector_flower(center, 6, 50, 10);
-	flower();
+	flower(width/2, height/2, 12);
+	// spinny_flower();
 
     v.display(); 	// send the vectors to the board to be drawn
 }
@@ -68,7 +69,7 @@ void ellipse(float x, float y, float rx, float ry)
 {
 	// Deduce how long r is in real pixels
         float r = abs(modelX(0,0,0) - modelX((rx+ry),0,0));
-	int steps = (int)(r / 5);
+	int steps = 50; //(int)(r / 5);
 	float dtheta = 2 * PI / steps;
 	float theta = dtheta;
 	float x0 = rx;
