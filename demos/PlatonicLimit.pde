@@ -1,3 +1,4 @@
+// By Calvin Hu
 public class Vertex {
   float x,y,z;
   color edgeColor;
