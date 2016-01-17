@@ -13,13 +13,21 @@ void setup() {
     noFill(); 	// don't fill in shapes
     stroke(212, 128, 32, 128);  // (r,g,b,alpha) for lines
 
+	// globals for the test functions:
+	xTop = 20;
+	xBot = width - 20;
+	dir = 1;
+
+	xCenter = width/2;
+	yCenter = height/2;
+
     frameRate(25); 	
 }
 
 void draw() {
 	background(0); 	// clears the screen and fills it with black
 
-	//pvector_test();
+	//simple_line();
 	//slanty_line();
 	//spinning_asterisk();
 	//spinning_star();
@@ -60,7 +68,7 @@ void ellipse(float x, float y, float rx, float ry)
 {
 	// Deduce how long r is in real pixels
         float r = abs(modelX(0,0,0) - modelX((rx+ry),0,0));
-	int steps = (int)(r / 5);
+	int steps = 50; //(int)(r / 5);
 	float dtheta = 2 * PI / steps;
 	float theta = dtheta;
 	float x0 = rx;
