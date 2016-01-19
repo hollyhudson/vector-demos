@@ -16,13 +16,13 @@ class Flower {
   // xpos, ypos, num_petals
   // scale, rotation_rate, rotation_dir
   //Flower(float tempxpos, float tempypos, int tempnum_petals, float tempscale, float rotation_rate, int rotation_dir) {
-  Flower(float tempxpos, float tempypos, int tempnum_petals) {
+  Flower(float tempxpos, float tempypos, int tempnum_petals, float temprotation_rate, int temprotation_dir) {
     xpos = tempxpos;
     ypos = tempypos;
     num_petals = tempnum_petals;
-    //float scale = tempscale;
-    //float rotation_rate = temprotation_rate;
-    //int rotation_dir = temprotation_dir; 
+    //scale = tempscale;
+    rotation_rate = temprotation_rate;
+    rotation_dir = temprotation_dir; 
   }
   
   void display() {
@@ -30,21 +30,20 @@ class Flower {
     
     background(0);
   
-    println("in display method");
     println(xpos);
 
     // move to first flower petal position
     translate(xpos, ypos);
     
+    // Rotate state so next flower drawn will be spun slightly
+    rotate(rotation_state += (rotation_rate * rotation_dir));
+
     // draw the flower
     for (int i = 0; i < num_petals; i++) {
       ellipse(0, 30, 20, 80);
       rotate(2*PI/num_petals);  
     }
     
-    // Rotate state so next flower drawn will be spun slightly
-    //rotate(rotation_state += (rotation_rate * rotation_dir));
-
     popMatrix();
   }
 }

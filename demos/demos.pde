@@ -25,8 +25,8 @@ void setup() {
   xCenter = width/2;
   yCenter = height/2;
 
-  // (xpos, ypos, num_petals)
-  myflower = new Flower(200,150,9);
+  // (xpos, ypos, num_petals, rotation_rate[0.0, 0.08], rotation_dir[-1 || 1])
+  myflower = new Flower(200,150,9, 0.5, 1);
 
   frameRate(25);  
 }
