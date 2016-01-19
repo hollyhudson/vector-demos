@@ -6,9 +6,9 @@
  */
 
 Vst v;
-Flower flower1;
-Flower flower2;
-Flower flower3;
+//Flower flower1;
+//Flower flower2;
+Flower[] bouquet;
 
 void setup() {
   size(600, 512, P2D);
@@ -28,9 +28,14 @@ void setup() {
   yCenter = height/2;
 
   // (xpos, ypos, num_petals, scale_size[0.5, 1.5], rotation_rate[-0.2, 0.2])
-  flower1 = new Flower(200,100,9, 0.5, 0.05);
-  flower2 = new Flower(350,180,9, 1, -0.1);
-  flower3 = new Flower(100,350,9, 1.5, 0.2);
+  //flower1 = new Flower(200,100,9, 0.5, 0.05);
+  //flower2 = new Flower(350,180,9, 1, -0.1);
+  bouquet = new Flower[5];
+  
+  for (int i = 0; i < bouquet.length; i++) {
+    // (xpos, ypos, num_petals, scale_size[0.5, 1.5], rotation_rate[-0.2, 0.2])
+    bouquet[i] = new Flower(random(100, 450), random(100, 300), (int)ceil(random(5.1,8.9)), random(0.5, 1.5), random(-0.2, 0.2)); 
+  }
 
   frameRate(25);  
 }
@@ -40,9 +45,10 @@ void draw() {
 
   stroke(100);
   line(100, 0, 150, 0); // prevents spot remover from removing the art
-  flower1.display(); 
-  flower2.display(); 
-  flower3.display(); 
+
+  for (int i = 0; i < bouquet.length; i++) {
+    bouquet[i].display();
+  }
 
   v.display();  // send the vectors to the board to be drawn
 }
