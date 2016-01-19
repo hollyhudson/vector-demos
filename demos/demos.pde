@@ -6,9 +6,10 @@
  */
 
 Vst v;
+Flower myflower;
 
 void setup() {
-  size(512, 600, P2D);
+  size(600, 512, P2D);
 
   v = new Vst(this, createSerial());
 
@@ -24,27 +25,21 @@ void setup() {
   xCenter = width/2;
   yCenter = height/2;
 
+  // (xpos, ypos, num_petals)
+  myflower = new Flower(200,150,9);
+
   frameRate(25);  
 }
 
 void draw() {
   background(0);  // clears the screen and fills it with black
 
-  //simple_line();
-  //slanty_line();
-  //spinning_asterisk();
-  //spinning_star();
-  //PVector center = new PVector(width/2, height/2);
-  //vector_circle(center,150);
-  //vector_ellipse(center, 150, 100);
-  //vector_flower(center, 6, 50, 10);
-  flower(200, 150, 9);
-  // spinny_flower();
+  stroke(100);
+  line(100, 0, 150, 0); // prevents spot remover from removing the art
+  myflower.display(); 
 
-    v.display();  // send the vectors to the board to be drawn
+  v.display();  // send the vectors to the board to be drawn
 }
-
-
 
 void line(PVector p0, PVector p1)
 {

@@ -1,51 +1,78 @@
 // vim: set ts=2 expandtab:
 // Please don't move or delete the line above!  Thx, Holly
 
-// Location of flower
-float x = 0;
-float y = 100;
-int xDirection = 1;
-int yDirection = 1;
-float aRotate = 0;
-float aTranslate = 0;
+class Flower {
+  float xpos;
+  float ypos;
+  int num_petals;
+  float scale;
+  float rotation_rate;
+  float rotation_dir;
+  float rotation_state = 0;
+  float flowerRotate = 0; // should these be in the constructor?
+  float flowerTranslate = 0; // don't know the purpose of these declarations
 
-void flower(float xPos, float yPos, int num_petals) {
-  pushMatrix();
-  
-  background(0);
-
-  // move to first flower petal position
-  translate(xPos, yPos);
-  
-  // draw the flower
-  for (int i = 0; i < num_petals; i++) {
-    ellipse(0, 30, 20, 80);
-    rotate(2*PI/num_petals);  
+  // The constructor (which I assume is this) should take:
+  // xpos, ypos, num_petals
+  // scale, rotation_rate, rotation_dir
+  //Flower(float tempxpos, float tempypos, int tempnum_petals, float tempscale, float rotation_rate, int rotation_dir) {
+  Flower(float tempxpos, float tempypos, int tempnum_petals) {
+    xpos = tempxpos;
+    ypos = tempypos;
+    num_petals = tempnum_petals;
+    //float scale = tempscale;
+    //float rotation_rate = temprotation_rate;
+    //int rotation_dir = temprotation_dir; 
   }
   
-  popMatrix();
-}
-
-void spinny_flower() {
-  pushMatrix();
-
-  // refresh the background for you'll get a smear instead of movement
-  background(0);
-
-  // move to first flower petal position
-  translate(width/2 + x, height/2 + y);   // (x, y) put in center of canvas
-  rotate(aRotate += 0.05);
-
-  // draw the flower
-  for (int i = 0; i < 12; i++) {  // make 10 ellipses
-    ellipse(0, 30, 20, 80);   // (x, y, width, height)
-    rotate(PI/6);   // 2(pi) radians is once around circle
-  } 
+  void display() {
+    pushMatrix();
+    
+    background(0);
   
-  x = cos(aTranslate) * 100;
-  y = sin(aTranslate) * 100;  
+    println("in display method");
+    println(xpos);
 
-  aTranslate -= 0.05;
-  
-  popMatrix();
+    // move to first flower petal position
+    translate(xpos, ypos);
+    
+    // draw the flower
+    for (int i = 0; i < num_petals; i++) {
+      ellipse(0, 30, 20, 80);
+      rotate(2*PI/num_petals);  
+    }
+    
+    // Rotate state so next flower drawn will be spun slightly
+    //rotate(rotation_state += (rotation_rate * rotation_dir));
+
+    popMatrix();
+  }
 }
+  
+/*
+  void spin() {
+    pushMatrix();
+  
+    // refresh the background or you'll get a smear instead of movement
+    background(0);
+  
+    // move to first flower petal position
+    translate(width/2 + xSpinRadius, height/2 + ySpinRadius);   // (x, y) put in center of canvas
+    rotate(flowerRotate += 0.05);
+  
+    // draw the flower
+    for (int i = 0; i < 12; i++) {  // make 10 ellipses
+      ellipse(0, 30, 20, 80);   // (x, y, width, height)
+      rotate(PI/6);   // 2(pi) radians is once around circle
+    } 
+    
+    popMatrix();
+  }
+
+    /* for spinning in a circle rather than in place:
+    float xSpinRadius = 0;
+    float ySpinRadius = 100;
+    xSpinRadius = cos(flowerTranslate) * 100;
+    ySpinRadius = sin(flowerTranslate) * 100;  
+    flowerTranslate -= 0.05;
+    */

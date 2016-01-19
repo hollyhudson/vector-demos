@@ -27,14 +27,31 @@ void slanty_line()
 
 float xCenter;
 float yCenter;
+float asterixRotate = 0;
+float steps = 0.05;
 
-void spinning_asterisk()
+void spinning_asterisk(int num_splines, int speed)
 {
-  stroke(1);
-  line(xCenter, yCenter + 100, xCenter, yCenter - 100); 
+  pushMatrix(); 
+  translate(xCenter, yCenter); // put it in the center
+
+  // select speed of rotation
+  if (speed == 0) {
+    steps = 0.03;
+  } else if (speed == 1) {
+    steps = 0.07;
+  } else steps = 0.1;
+
+  rotate(asterixRotate += steps); // rotate the frame for the asterix
+
+  // draw the asterix
+  for (int i = 0; i < num_splines; i++)
+  {
+    rotate(PI/num_splines);
+    line(0, 100, 0, -100); 
+  }
   
-  rotate(PI/3);
-  
+  popMatrix();
   //endpoint.rotate(2*PI/180);  // rotate 2 degrees
 }
 
