@@ -6,9 +6,7 @@
  */
 
 Vst v;
-//Flower flower1;
-//Flower flower2;
-Flower[] bouquet;
+ArrayList<Flower> bouquet = new ArrayList<Flower>();
 
 void setup() {
   size(600, 512, P2D);
@@ -27,14 +25,14 @@ void setup() {
   xCenter = width/2;
   yCenter = height/2;
 
-  // (xpos, ypos, num_petals, scale_size[0.5, 1.5], rotation_rate[-0.2, 0.2])
-  //flower1 = new Flower(200,100,9, 0.5, 0.05);
-  //flower2 = new Flower(350,180,9, 1, -0.1);
-  bouquet = new Flower[5];
-  
-  for (int i = 0; i < bouquet.length; i++) {
+  for (int i = 0; i < 5; i++) {
     // (xpos, ypos, num_petals, scale_size[0.5, 1.5], rotation_rate[-0.2, 0.2])
-    bouquet[i] = new Flower(random(100, 450), random(100, 300), (int)ceil(random(5.1,8.9)), random(0.5, 1.5), random(-0.2, 0.2)); 
+    bouquet.add(new Flower(
+                  random(100, 450), 
+                  random(100, 300), 
+                  (int)ceil(random(5.1,8.9)), 
+                  random(0.5, 1.5),
+                  random(-0.2, 0.2))); 
   }
 
   frameRate(25);  
@@ -46,8 +44,9 @@ void draw() {
   stroke(100);
   line(100, 0, 150, 0); // prevents spot remover from removing the art
 
-  for (int i = 0; i < bouquet.length; i++) {
-    bouquet[i].display();
+  for (int i = 0; i < bouquet.size(); i++) {
+    Flower blossom = bouquet.get(i);
+    blossom.display();
   }
 
   v.display();  // send the vectors to the board to be drawn
