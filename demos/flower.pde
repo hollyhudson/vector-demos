@@ -6,23 +6,19 @@ class Flower {
   float ypos;
   int num_petals;
   float scale;
-  float rotation_rate;
-  float rotation_dir;
+  float rotation_rate; // 0.0 - 0.1 looks nice
   float rotation_state = 0;
-  float flowerRotate = 0; // should these be in the constructor?
-  float flowerTranslate = 0; // don't know the purpose of these declarations
 
   // The constructor (which I assume is this) should take:
   // xpos, ypos, num_petals
   // scale, rotation_rate, rotation_dir
   //Flower(float tempxpos, float tempypos, int tempnum_petals, float tempscale, float rotation_rate, int rotation_dir) {
-  Flower(float tempxpos, float tempypos, int tempnum_petals, float temprotation_rate, int temprotation_dir) {
+  Flower(float tempxpos, float tempypos, int tempnum_petals, float temprotation_rate) {
     xpos = tempxpos;
     ypos = tempypos;
     num_petals = tempnum_petals;
     //scale = tempscale;
     rotation_rate = temprotation_rate;
-    rotation_dir = temprotation_dir; 
   }
   
   void display() {
@@ -30,13 +26,11 @@ class Flower {
     
     background(0);
   
-    println(xpos);
-
     // move to first flower petal position
     translate(xpos, ypos);
     
     // Rotate state so next flower drawn will be spun slightly
-    rotate(rotation_state += (rotation_rate * rotation_dir));
+    rotate(rotation_state += rotation_rate);
 
     // draw the flower
     for (int i = 0; i < num_petals; i++) {

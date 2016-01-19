@@ -6,7 +6,9 @@
  */
 
 Vst v;
-Flower myflower;
+Flower flower1;
+Flower flower2;
+Flower flower3;
 
 void setup() {
   size(600, 512, P2D);
@@ -25,8 +27,10 @@ void setup() {
   xCenter = width/2;
   yCenter = height/2;
 
-  // (xpos, ypos, num_petals, rotation_rate[0.0, 0.08], rotation_dir[-1 || 1])
-  myflower = new Flower(200,150,9, 0.5, 1);
+  // (xpos, ypos, num_petals, rotation_rate[-0.2, 0.2])
+  flower1 = new Flower(200,150,9, -0.05);
+  flower2 = new Flower(350,300,9, -0.1);
+  flower3 = new Flower(100,450,9, -0.2);
 
   frameRate(25);  
 }
@@ -36,7 +40,9 @@ void draw() {
 
   stroke(100);
   line(100, 0, 150, 0); // prevents spot remover from removing the art
-  myflower.display(); 
+  flower1.display(); 
+  flower2.display(); 
+  flower3.display(); 
 
   v.display();  // send the vectors to the board to be drawn
 }
