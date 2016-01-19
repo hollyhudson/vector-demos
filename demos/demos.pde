@@ -27,10 +27,10 @@ void setup() {
   xCenter = width/2;
   yCenter = height/2;
 
-  // (xpos, ypos, num_petals, rotation_rate[-0.2, 0.2])
-  flower1 = new Flower(200,150,9, -0.05);
-  flower2 = new Flower(350,300,9, -0.1);
-  flower3 = new Flower(100,450,9, -0.2);
+  // (xpos, ypos, num_petals, scale_size[0.5, 1.5], rotation_rate[-0.2, 0.2])
+  flower1 = new Flower(200,100,9, 0.5, 0.05);
+  flower2 = new Flower(350,180,9, 1, -0.1);
+  flower3 = new Flower(100,350,9, 1.5, 0.2);
 
   frameRate(25);  
 }

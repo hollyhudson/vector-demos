@@ -5,19 +5,19 @@ class Flower {
   float xpos;
   float ypos;
   int num_petals;
-  float scale;
+  float scale_size = 1;
   float rotation_rate; // 0.0 - 0.1 looks nice
   float rotation_state = 0;
 
   // The constructor (which I assume is this) should take:
   // xpos, ypos, num_petals
   // scale, rotation_rate, rotation_dir
-  //Flower(float tempxpos, float tempypos, int tempnum_petals, float tempscale, float rotation_rate, int rotation_dir) {
-  Flower(float tempxpos, float tempypos, int tempnum_petals, float temprotation_rate) {
+  //Flower(float tempxpos, float tempypos, int tempnum_petals, float tempscale_size, float rotation_rate, int rotation_dir) {
+  Flower(float tempxpos, float tempypos, int tempnum_petals, float tempscale_size, float temprotation_rate) {
     xpos = tempxpos;
     ypos = tempypos;
     num_petals = tempnum_petals;
-    //scale = tempscale;
+    scale_size = tempscale_size;
     rotation_rate = temprotation_rate;
   }
   
@@ -28,13 +28,14 @@ class Flower {
   
     // move to first flower petal position
     translate(xpos, ypos);
-    
     // Rotate state so next flower drawn will be spun slightly
     rotate(rotation_state += rotation_rate);
+    // Scale the flower
+    scale(scale_size);
 
     // draw the flower
     for (int i = 0; i < num_petals; i++) {
-      ellipse(0, 30, 20, 80);
+      ellipse(0, 15, 10, 40);
       rotate(2*PI/num_petals);  
     }
     
