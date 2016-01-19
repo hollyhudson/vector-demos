@@ -25,7 +25,7 @@ void setup() {
   xCenter = width/2;
   yCenter = height/2;
 
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 9; i++) {
     // (xpos, ypos, num_petals, scale_size[0.5, 1.5], rotation_rate[-0.2, 0.2])
     bouquet.add(new Flower(
                   random(100, 450), 
@@ -78,7 +78,7 @@ void ellipse(float x, float y, float rx, float ry)
 {
   // Deduce how long r is in real pixels
         float r = abs(modelX(0,0,0) - modelX((rx+ry),0,0));
-  int steps = 50; //(int)(r / 5);
+  int steps = 30; //(int)(r / 5);
   float dtheta = 2 * PI / steps;
   float theta = dtheta;
   float x0 = rx;
