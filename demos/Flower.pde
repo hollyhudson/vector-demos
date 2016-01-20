@@ -8,6 +8,7 @@ class Flower {
   float scale_size = 1;
   float rotation_rate; // 0.0 - 0.1 looks nice
   float rotation_state = 0;
+  int age = 0;
 
   // The constructor (which I assume is this) should take:
   // xpos, ypos, num_petals
@@ -40,6 +41,9 @@ class Flower {
     }
     
     popMatrix();
+  
+    // Age the flower for eventual destruction
+    age += 1;
   }
 }
   

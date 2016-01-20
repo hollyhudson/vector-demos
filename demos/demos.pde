@@ -25,16 +25,6 @@ void setup() {
   xCenter = width/2;
   yCenter = height/2;
 
-  for (int i = 0; i < 9; i++) {
-    // (xpos, ypos, num_petals, scale_size[0.5, 1.5], rotation_rate[-0.2, 0.2])
-    bouquet.add(new Flower(
-                  random(100, 450), 
-                  random(100, 300), 
-                  (int)ceil(random(5.1,8.9)), 
-                  random(0.5, 1.5),
-                  random(-0.2, 0.2))); 
-  }
-
   frameRate(25);  
 }
 
@@ -43,10 +33,25 @@ void draw() {
 
   stroke(100);
   line(100, 0, 150, 0); // prevents spot remover from removing the art
+  
+  //int test = random(9);
+  if (floor(random(35)) == 0) {
+    // (xpos, ypos, num_petals, scale_size[0.5, 1.5], rotation_rate[-0.2, 0.2])
+    bouquet.add(new Flower(
+                  random(50, 550), 
+                  random(50, 450), 
+                  (int)ceil(random(5.1,8.9)), 
+                  random(0.5, 1.5),
+                  random(-0.2, 0.2))); 
+  }
 
   for (int i = 0; i < bouquet.size(); i++) {
     Flower blossom = bouquet.get(i);
-    blossom.display();
+    if (blossom.age > 150) {
+      bouquet.remove(blossom);
+    } else {
+      blossom.display();
+    }
   }
 
   v.display();  // send the vectors to the board to be drawn
