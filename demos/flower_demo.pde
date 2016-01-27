@@ -35,7 +35,7 @@ void draw() {
   line(100, 0, 150, 0); // prevents spot remover from removing the art
   
   //int test = random(9);
-  if (floor(random(35)) == 0) {
+  if (floor(random(40)) == 0) {
     // (xpos, ypos, num_petals, scale_size[0.5, 1.5], rotation_rate[-0.2, 0.2])
     bouquet.add(new Flower(
                   random(50, 550), 
@@ -47,7 +47,7 @@ void draw() {
 
   for (int i = 0; i < bouquet.size(); i++) {
     Flower blossom = bouquet.get(i);
-    if (blossom.age > 150) {
+    if (blossom.age > 140) {
       bouquet.remove(blossom);
     } else {
       blossom.display();
