@@ -18,12 +18,11 @@ void setup() {
   stroke(212, 128, 32, 128);  // (r,g,b,alpha) for lines
 
   // globals for the test functions:
-  xTop = 20;
-  xBot = width - 20;
-  dir = 1;
+  //xTop = 20;
+  //xBot = width - 20;
 
-  xCenter = width/2;
-  yCenter = height/2;
+  //xCenter = width/2;
+  //yCenter = height/2;
 
   frameRate(25);  
 }
