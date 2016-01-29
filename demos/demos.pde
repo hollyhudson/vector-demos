@@ -30,9 +30,18 @@ void setup() {
 void draw() {
   background(0);  // clears the screen and fills it with black
 
-  stroke(100);
+  stroke(200);
   line(100, 0, 150, 0); // prevents spot remover from removing the art
   
+  // draw a cursor
+  pushMatrix();
+  translate(mouseX, mouseY);
+  for (int i = 0; i < 3; i++) {
+    rotate(PI/3);
+    line(-5, 0, 5, 0);
+  }
+  popMatrix();
+
   //int test = random(9);
   if (floor(random(40)) == 0) {
     // (xpos, ypos, num_petals, scale_size[0.5, 1.5], rotation_rate[-0.2, 0.2])
