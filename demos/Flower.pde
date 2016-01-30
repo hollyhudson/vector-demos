@@ -22,14 +22,15 @@ class Flower {
 	void spin(float distance) {
 
     // how do we judge distance?  use radius of ellipse from center of rotation
-    
     if (distance < 50) { // if we're close
       if (rotation_rate < 0.2) { // and rotation is less than max speed
         rotation_rate+= 0.02; // increase rotation rate by 0.01
       }
     } else if (rotation_rate > 0) {
       // if we're outside the pinwheel's radius and still spinning, slow down 
-      rotation_rate-= 0.005;
+      //rotation_rate-= 0.005;
+      rotation_rate*= 0.97; //exponential decay
+      
     }
 
     // never go backwards, just stop
@@ -67,7 +68,7 @@ class Flower {
 
     popMatrix();
 
-    // age teh flower for eventual destruction
+    // age the flower for eventual destruction
     age += 1;
   }
 
