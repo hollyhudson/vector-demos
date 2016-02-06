@@ -36,7 +36,7 @@ class Flower {
 
     // draw the flower
     for (int i = 0; i < num_petals; i++) {
-      ellipse(0, 15, 10, 40);
+      ellipse(0, 15, 20, 80);
       rotate(2*PI/num_petals);  
     }
     
